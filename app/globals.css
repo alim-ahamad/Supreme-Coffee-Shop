@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-serif: 'Georgia', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Dark Luxury Palette */
+  --color-background: #0B0B0B;
+  --color-surface: #161311;
+  --color-foreground: #F5E6D3;
+  --color-card: #1a1410;
+  --color-card-foreground: #F5E6D3;
+  --color-primary: #4E342E;
+  --color-primary-foreground: #F5E6D3;
+  --color-secondary: #C89B5C;
+  --color-secondary-foreground: #0B0B0B;
+  --color-accent: #C89B5C;
+  --color-accent-foreground: #0B0B0B;
+  --color-muted: #2d2420;
+  --color-muted-foreground: #b8a896;
+  --color-border: #3a3228;
+  --color-input: #161311;
+  --color-ring: #C89B5C;
+  --color-destructive: #ef4444;
+  
+  --radius: 0.75rem;
+}
+
+@layer base {
+  html {
+    @apply bg-background;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  button, a{
+    cursor: pointer;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes coffeeParticles {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) translateX(20px);
+  }
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scaleX(0.8);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(200, 155, 92, 0.3), inset 0 0 20px rgba(200, 155, 92, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(200, 155, 92, 0.5), inset 0 0 30px rgba(200, 155, 92, 0.2);
+  }
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .glass {
+    @apply bg-white/30 backdrop-blur-md border border-white/20 rounded-lg;
+  }
+  
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-lg;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-coffee-particles {
+    animation: coffeeParticles 2s ease-out infinite;
+  }
+  
+  .animate-steam {
+    animation: steamRise 2.5s ease-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  
+  .animate-reveal-text {
+    animation: revealText 0.8s ease-out forwards;
+  }
+  
+  /* Luxury Glass Effect */
+  .glass-luxury {
+    background-color: rgba(22, 19, 17, 0.4);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(200, 155, 92, 0.2);
+    border-radius: 1rem;
+  }
+  
+  .glass-luxury-hover {
+    transition: all 300ms;
+  }
+  
+  .glass-luxury-hover:hover {
+    background-color: rgba(22, 19, 17, 0.6);
+    border-color: rgba(200, 155, 92, 0.4);
+  }
+  
+  /* Premium Text Styles */
+  .headline-xl {
+    @apply text-6xl md:text-7xl font-serif font-bold tracking-tight;
+  }
+  
+  .headline-lg {
+    @apply text-5xl md:text-6xl font-serif font-bold tracking-tight;
+  }
+  
+  .headline-md {
+    @apply text-4xl md:text-5xl font-serif font-bold tracking-tight;
+  }
+  
+  .body-lg {
+    @apply text-lg md:text-xl leading-relaxed font-light;
+  }
+  
+  .body-sm {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+}
